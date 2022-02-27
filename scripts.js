@@ -11,9 +11,14 @@ function computerPlay(){
     return computerSelection;
 }
 
-//
+let playerSelectionCheck = function (playerSelection) {
+    playerSelection = prompt('Choose your weapon...').toLowerCase();
+    while (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {
+        playerSelection = prompt(`${playerSelection} is not a valid choice, try again.`).toLowerCase();
+    }
+    return playerSelection;
+}
 
-// write a function that plays a single round vs computer.
 function playRound(playerSelection, computerSelection) {
     switch (playerSelection === playerSelection && computerSelection === computerSelection) {
         case playerSelection === 'rock' && computerSelection === 'scissors':
@@ -32,12 +37,12 @@ function playRound(playerSelection, computerSelection) {
             alert('It\'s a tie!');
             break;
         default:
-            alert('This is the default message');
+            alert('Sorry but you need to choose, Rock, Paper or Scissors');
             break;
     }
 }
 
-playerSelection = prompt('Choose your weapon...').toLowerCase();
+playerSelection = playerSelectionCheck();
 computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
 
